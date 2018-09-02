@@ -1,0 +1,7 @@
+security:
+  user:
+    name: user
+    password: pass
+  basic:
+    authorize-mode: authenticated
+    path: /**
