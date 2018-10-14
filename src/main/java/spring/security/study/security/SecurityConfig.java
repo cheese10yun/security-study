@@ -1,24 +1,23 @@
-package spring.security.study.config;
+package spring.security.study.security;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
+@AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final UserDetailsService userDetailsService;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
-        //@formatter:off
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("{noop}pass").roles("USER");
-        //@formatter:on
-
+        auth.userDetailsService(userDetailsService);
     }
 
     @Override
