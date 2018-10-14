@@ -1,5 +1,20 @@
 # 목차
+<!-- TOC -->
 
+- [목차](#목차)
+- [Lesson 1: A Simple Registration Flow](#lesson-1-a-simple-registration-flow)
+    - [간단한 사용자 등록](#간단한-사용자-등록)
+- [Lesson 2: Authentication using Real Users](#lesson-2-authentication-using-real-users)
+    - [인증 절차를 수행하기](#인증-절차를-수행하기)
+- [Lesson 3: Activate a New Account via Email](#lesson-3-activate-a-new-account-via-email)
+    - [Verification Token](#verification-token)
+    - [이메일 인증](#이메일-인증)
+- [Lesson 4: Deal with “I forgot my password”](#lesson-4-deal-with-i-forgot-my-password)
+- [Lesson 5: Doing Security Questions Right (NEW)](#lesson-5-doing-security-questions-right-new)
+- [Lesson 6: Ensure Password Strength during Registration - part 1 (NEW)](#lesson-6-ensure-password-strength-during-registration---part-1-new)
+- [Lesson 6: Ensure Password Strength during Registration - part 2 (NEW)](#lesson-6-ensure-password-strength-during-registration---part-2-new)
+
+<!-- /TOC -->
 # Lesson 1: A Simple Registration Flow
 
 ## 간단한 사용자 등록
@@ -102,6 +117,7 @@ public class User {
 * `VerificationTokenRepository`를 이용해서 이메일 인증 기반 토큰 조회
 * 발급한 토큰이 이메일 인증이되면 해당 유저의 `enabled`를 true 변경
 
+## 이메일 인증
 ```java
 String appUrl = "http://" + request.getServerName() + ":" +
   request.getServerPort() + request.getContextPath();
